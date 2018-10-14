@@ -5,7 +5,7 @@ var express = require('express'),
     engines = require('consolidate'),
     assert = require('assert'),
     ObjectId = require('mongodb').ObjectID,
-    url = 'mongodb://localhost:27017/simplemean';
+    url = 'mongodb://jaechungcosmos:0E03zvgQrPvgxq301tGvm3q9aqpXziejIqZHfO4UCl1mHU1izuIybvdjlyBXHKuQqubni8EY83IMCb6telYMdw==@jaechungcosmos.documents.azure.com:10255/simplemean?ssl=true&sslverifycertificate=false';
 
 app.use(express.static(__dirname + "/public"));
 
@@ -22,7 +22,7 @@ function errorHandler(err, req, res, next) {
     res.status(500).render("error_template", { error: err});
 }
 
-MongoClient.connect(process.env.MONGODB_URI || url,function(err, db){
+MongoClient.connect(url,function(err, db){
     assert.equal(null, err);
     console.log('Successfully connected to MongoDB.');
 
